@@ -12,7 +12,6 @@ const gencompchoice=()=>{
 
 }
 const drawgame=()=>{
-    console.log("game draw");
     msg.innerText="Draw. PlayAgain"
     msg.style.backgroundColor="#081b31";
 
@@ -21,7 +20,6 @@ const showwinner=(userwin,userchoice,compchoice)=>{
 if(userwin===true){
     userscore++;
     userscorepara.innerText=userscore
-    console.log("u win");
     msg.innerText="You Win! Yours "+userchoice+" beets "+compchoice;
     msg.style.backgroundColor="green";
 
@@ -29,16 +27,13 @@ if(userwin===true){
 else{
     computerscore++;
     compscorepara.innerText=computerscore;
-    console.log("you lose");
     msg.innerText="You Lose. "+compchoice+" beets "+userchoice;
     msg.style.backgroundColor="red";
 }
 }
 
 const playgame=(userchoice)=>{
-    console.log("user choice=",userchoice);
     const compchoice=gencompchoice();
-    console.log("computer choice",compchoice);
     if(userchoice===compchoice){
       drawgame();
     }
