@@ -2,6 +2,8 @@ let userscore=0;
 let computerscore=0;
 const choices=document.querySelectorAll(".choice");
 const msg= document.querySelector("#msg");
+const userscorepara=document.querySelector("#userscore");
+const compscorepara=document.querySelector("#computerscore");
 
 const gencompchoice=()=>{
     const options=["rock","paper","scissor"];
@@ -11,20 +13,24 @@ const gencompchoice=()=>{
 }
 const drawgame=()=>{
     console.log("game draw");
-    msg.innerText="Game Was Draw"
+    msg.innerText="Draw. PlayAgain"
     msg.style.backgroundColor="#081b31";
 
 }
-const showwinner=(userwin)=>{
+const showwinner=(userwin,userchoice,compchoice)=>{
 if(userwin===true){
+    userscore++;
+    userscorepara.innerText=userscore
     console.log("u win");
-    msg.innerText="You Win"
+    msg.innerText="You Win! Yours "+userchoice+" beets "+compchoice;
     msg.style.backgroundColor="green";
 
 }
 else{
+    computerscore++;
+    compscorepara.innerText=computerscore;
     console.log("you lose");
-    msg.innerText="You Lose"
+    msg.innerText="You Lose. "+compchoice+" beets "+userchoice;
     msg.style.backgroundColor="red";
 }
 }
@@ -47,7 +53,7 @@ const playgame=(userchoice)=>{
         else{
             userwin=compchoice==="rock"?false:true;
         }
-        showwinner(userwin);
+        showwinner(userwin,userchoice,compchoice);
     }
 
 
